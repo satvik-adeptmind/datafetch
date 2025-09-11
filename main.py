@@ -19,6 +19,8 @@ from src.retailers.lenovolas_parser import LenovoLasParser
 from src.retailers.napaonline_parser import NapaOnlineParser
 from src.retailers.simplybe_parser import SimplyBeParser
 from src.retailers.solesupplier_parser import SoleSupplierParser
+from src.retailers.revzilla_parser import RevzillaParser
+from src.retailers.uniquevintage_parser import UniqueVintageParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -35,6 +37,8 @@ RETAILER_PARSERS = {
     "napaonline": NapaOnlineParser,
     "simplybe": SimplyBeParser,
     "solesupplier": SoleSupplierParser,
+    "revzilla": RevzillaParser,
+    "uniquevintage": UniqueVintageParser,
 }
 
 # (The rest of the main.py file remains unchanged)

@@ -17,7 +17,9 @@ from src.retailers.napaonline_parser import NapaOnlineParser
 from src.retailers.simplybe_parser import SimplyBeParser
 from src.retailers.solesupplier_parser import SoleSupplierParser
 from src.retailers.revzilla_parser import RevzillaParser
-from src.retailers.uniquevintage_parser import UniqueVintageParser    
+from src.retailers.uniquevintage_parser import UniqueVintageParser
+from src.retailers.homeessentials_parser import HomeEssentialsParser
+
 import os
 import yaml
 import tempfile
@@ -43,6 +45,7 @@ RETAILER_PARSERS = {
     "solesupplier": SoleSupplierParser,
     "revzilla": RevzillaParser,
     "uniquevintage": UniqueVintageParser, 
+    "homeessentials": HomeEssentialsParser,
 }
 
 def create_zip_file(file_paths):

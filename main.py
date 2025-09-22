@@ -21,6 +21,7 @@ from src.retailers.simplybe_parser import SimplyBeParser
 from src.retailers.solesupplier_parser import SoleSupplierParser
 from src.retailers.revzilla_parser import RevzillaParser
 from src.retailers.uniquevintage_parser import UniqueVintageParser
+from src.retailers.homeessentials_parser import HomeEssentialsParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -39,6 +40,7 @@ RETAILER_PARSERS = {
     "solesupplier": SoleSupplierParser,
     "revzilla": RevzillaParser,
     "uniquevintage": UniqueVintageParser,
+    "homeessentials": HomeEssentialsParser,
 }
 
 # (The rest of the main.py file remains unchanged)

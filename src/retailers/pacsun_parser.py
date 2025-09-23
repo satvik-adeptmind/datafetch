@@ -10,7 +10,6 @@ class PacsunParser(BaseParser):
         for i, product in enumerate(products):
             title = product.get('title', 'N/A')
             description = product.get('description', 'N/A')
-            product_type = product.get('product_type', 'N/A')
 
             gender = 'N/A'
             age = 'N/A'
@@ -39,7 +38,6 @@ class PacsunParser(BaseParser):
             llm_texts.append(f"""prod {i + 1}:
 title: {title}
 description: {description}
-product_type: {product_type}
 gender: {gender}
 age: {age}
 color: {color}

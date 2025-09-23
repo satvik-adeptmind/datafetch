@@ -19,7 +19,7 @@ from src.retailers.solesupplier_parser import SoleSupplierParser
 from src.retailers.revzilla_parser import RevzillaParser
 from src.retailers.uniquevintage_parser import UniqueVintageParser
 from src.retailers.homeessentials_parser import HomeEssentialsParser
-
+from src.retailers.pacsun_parser import PacsunParser
 import os
 import yaml
 import tempfile
@@ -46,6 +46,7 @@ RETAILER_PARSERS = {
     "revzilla": RevzillaParser,
     "uniquevintage": UniqueVintageParser, 
     "homeessentials": HomeEssentialsParser,
+    "pacsun": PacsunParser
 }
 
 def create_zip_file(file_paths):

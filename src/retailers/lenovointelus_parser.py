@@ -14,12 +14,16 @@ class LenovoIntelUsParser(BaseParser):
             operatingsystem = product.get('operatingsystem', 'N/A').strip()
             display = product.get('display', 'N/A').strip()
             graphics = product.get('graphics', 'N/A').strip()
+            memory = product.get('memory', 'N/A').strip()
+            harddrive = product.get('harddrive', 'N/A').strip()
 
             details_text = f"""description: {description}
 processor: {processor}
 operatingsystem: {operatingsystem}
 display: {display}
-graphics: {graphics}"""
+graphics: {graphics}
+memory: {memory}
+harddrive: {harddrive}"""
 
             llm_texts.append(f"""prod {i + 1}:
 title: {title}

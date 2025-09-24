@@ -20,6 +20,9 @@ from src.retailers.revzilla_parser import RevzillaParser
 from src.retailers.uniquevintage_parser import UniqueVintageParser
 from src.retailers.homeessentials_parser import HomeEssentialsParser
 from src.retailers.pacsun_parser import PacsunParser
+from src.retailers.lenovointelus_parser import LenovoIntelUsParser
+from src.retailers.lenovointelall_parser import LenovoIntelAllParser
+
 import os
 import yaml
 import tempfile
@@ -46,7 +49,9 @@ RETAILER_PARSERS = {
     "revzilla": RevzillaParser,
     "uniquevintage": UniqueVintageParser, 
     "homeessentials": HomeEssentialsParser,
-    "pacsun": PacsunParser
+    "pacsun": PacsunParser,
+    "lenovointelus": LenovoIntelUsParser,
+    "lenovointelall": LenovoIntelAllParser,
 }
 
 def create_zip_file(file_paths):

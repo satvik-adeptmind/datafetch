@@ -23,7 +23,8 @@ from src.retailers.revzilla_parser import RevzillaParser
 from src.retailers.uniquevintage_parser import UniqueVintageParser
 from src.retailers.homeessentials_parser import HomeEssentialsParser
 from src.retailers.pacsun_parser import PacsunParser
-
+from src.retailers.lenovointelus_parser import LenovoIntelUsParser
+from src.retailers.lenovointelall_parser import LenovoIntelAllParser
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -42,7 +43,9 @@ RETAILER_PARSERS = {
     "revzilla": RevzillaParser,
     "uniquevintage": UniqueVintageParser,
     "homeessentials": HomeEssentialsParser,
-    "pacsun": PacsunParser
+    "pacsun": PacsunParser,
+    "lenovointelus": LenovoIntelUsParser,
+    "lenovointelall": LenovoIntelAllParser,
 }
 
 # (The rest of the main.py file remains unchanged)

@@ -25,6 +25,8 @@ from src.retailers.homeessentials_parser import HomeEssentialsParser
 from src.retailers.pacsun_parser import PacsunParser
 from src.retailers.lenovointelus_parser import LenovoIntelUsParser
 from src.retailers.lenovointelall_parser import LenovoIntelAllParser
+from src.retailers.lululemon_parser import LululemonParser
+
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -46,6 +48,7 @@ RETAILER_PARSERS = {
     "pacsun": PacsunParser,
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
+    "lululemon": LululemonParser,  # Placeholder for LululemonParser
 }
 
 # (The rest of the main.py file remains unchanged)

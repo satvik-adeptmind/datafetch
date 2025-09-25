@@ -22,7 +22,7 @@ from src.retailers.homeessentials_parser import HomeEssentialsParser
 from src.retailers.pacsun_parser import PacsunParser
 from src.retailers.lenovointelus_parser import LenovoIntelUsParser
 from src.retailers.lenovointelall_parser import LenovoIntelAllParser
-
+from src.retailers.lululemon_parser import LululemonParser
 import os
 import yaml
 import tempfile
@@ -52,6 +52,7 @@ RETAILER_PARSERS = {
     "pacsun": PacsunParser,
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
+    "lululemon": LululemonParser,
 }
 
 def create_zip_file(file_paths):

@@ -12,7 +12,7 @@ class FashionWorldParser(BaseParser):
             material = product.get('material', 'N/A')
             variant = product.get('models', [{}])[0].get('variants', [{}])[0]
             color = variant.get('color', 'N/A')
-            gender = variant.get('gender', 'N/A')
+            gender = product.get('gender', 'N/A')
             llm_texts.append(f"""prod {i + 1}:
 title: {title}
 description: {desc}

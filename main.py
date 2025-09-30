@@ -50,7 +50,7 @@ RETAILER_PARSERS = {
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
     "lululemon": LululemonParser,
-    "janieandjack": JanieAndJackParser,
+    "janieandjack": JanieAndJackParser
 }
 
 # (The rest of the main.py file remains unchanged)

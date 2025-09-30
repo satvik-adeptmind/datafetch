@@ -26,6 +26,7 @@ from src.retailers.pacsun_parser import PacsunParser
 from src.retailers.lenovointelus_parser import LenovoIntelUsParser
 from src.retailers.lenovointelall_parser import LenovoIntelAllParser
 from src.retailers.lululemon_parser import LululemonParser
+from src.retailers.janieandjack_parser import JanieAndJackParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -48,7 +49,8 @@ RETAILER_PARSERS = {
     "pacsun": PacsunParser,
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
-    "lululemon": LululemonParser,  # Placeholder for LululemonParser
+    "lululemon": LululemonParser,
+    "janieandjack": JanieAndJackParser,
 }
 
 # (The rest of the main.py file remains unchanged)

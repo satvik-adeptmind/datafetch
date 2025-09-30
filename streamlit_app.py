@@ -54,7 +54,7 @@ RETAILER_PARSERS = {
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
     "lululemon": LululemonParser,
-    "janieandjack": JanieAndJackParser,
+    "janieandjack": JanieAndJackParser
 }
 
 def create_zip_file(file_paths):

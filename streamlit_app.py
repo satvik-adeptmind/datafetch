@@ -24,6 +24,8 @@ from src.retailers.lenovointelus_parser import LenovoIntelUsParser
 from src.retailers.lenovointelall_parser import LenovoIntelAllParser
 from src.retailers.lululemon_parser import LululemonParser
 from src.retailers.janieandjack_parser import JanieAndJackParser
+from src.retailers.loft_parser import LoftParser
+from src.retailers.athleta_parser import AthletaParser
 import os
 import yaml
 import tempfile
@@ -54,7 +56,9 @@ RETAILER_PARSERS = {
     "lenovointelus": LenovoIntelUsParser,
     "lenovointelall": LenovoIntelAllParser,
     "lululemon": LululemonParser,
-    "janieandjack": JanieAndJackParser
+    "janieandjack": JanieAndJackParser,
+    "loft": LoftParser,
+    "athleta": AthletaParser
 }
 
 def create_zip_file(file_paths):

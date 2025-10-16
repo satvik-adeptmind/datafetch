@@ -26,6 +26,7 @@ from src.retailers.lululemon_parser import LululemonParser
 from src.retailers.janieandjack_parser import JanieAndJackParser
 from src.retailers.loft_parser import LoftParser
 from src.retailers.athleta_parser import AthletaParser
+from src.retailers.petsupermarket_parser import PetSuperMarketParser
 import os
 import yaml
 import tempfile
@@ -58,7 +59,8 @@ RETAILER_PARSERS = {
     "lululemon": LululemonParser,
     "janieandjack": JanieAndJackParser,
     "loft": LoftParser,
-    "athleta": AthletaParser
+    "athleta": AthletaParser,
+    "petsupermarket": PetSuperMarketParser
 }
 
 def create_zip_file(file_paths):

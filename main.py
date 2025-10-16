@@ -29,6 +29,7 @@ from src.retailers.lululemon_parser import LululemonParser
 from src.retailers.janieandjack_parser import JanieAndJackParser
 from src.retailers.loft_parser import LoftParser
 from src.retailers.athleta_parser import AthletaParser
+from src.retailers.petsupermarket_parser import PetSuperMarketParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -54,7 +55,8 @@ RETAILER_PARSERS = {
     "lululemon": LululemonParser,
     "janieandjack": JanieAndJackParser,
     "loft": LoftParser,
-    "athleta": AthletaParser
+    "athleta": AthletaParser,
+    "petsupermarket": PetSuperMarketParser
 }
 
 # (The rest of the main.py file remains unchanged)

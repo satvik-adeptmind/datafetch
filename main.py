@@ -30,6 +30,8 @@ from src.retailers.janieandjack_parser import JanieAndJackParser
 from src.retailers.loft_parser import LoftParser
 from src.retailers.athleta_parser import AthletaParser
 from src.retailers.petsupermarket_parser import PetSuperMarketParser
+from src.retailers.image_parser import ImageParser
+from src.retailers.jacamo_parser import JacamoParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -56,7 +58,9 @@ RETAILER_PARSERS = {
     "janieandjack": JanieAndJackParser,
     "loft": LoftParser,
     "athleta": AthletaParser,
-    "petsupermarket": PetSuperMarketParser
+    "petsupermarket": PetSuperMarketParser,
+    "image": ImageParser,
+    "jacamo": JacamoParser
 }
 
 # (The rest of the main.py file remains unchanged)

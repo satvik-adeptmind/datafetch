@@ -15,16 +15,13 @@ class SimplyBeParser(BaseParser):
                 if val_str.strip():
                     details.append(f"{field_name}: {val_str}")
 
-            add_detail("google_product_category", product.get("google_product_category"))
             add_detail("description", product.get("description"))
             add_detail("title", product.get("title"))
-            add_detail("product_type", product.get("product_type"))
             add_detail("FABRIC", product.get("material")) # Aliasing
 
             extra = product.get("extra_attributes", {})
             cu = product.get("cu_attributes", {})
             add_detail("SEASON", extra.get("SEASON") or cu.get("SEASON"))
-            add_detail("OCCASION", extra.get("OCCASION") or cu.get("OCCASION"))
             add_detail("VIBE", extra.get("VIBE"))
             add_detail("LOOK", extra.get("LOOK"))
             

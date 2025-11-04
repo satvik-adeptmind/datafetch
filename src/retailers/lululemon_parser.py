@@ -49,10 +49,6 @@ class LululemonParser(BaseParser):
             seasons_list = product.get('seasons', [])
             seasons = ", ".join(seasons_list) if seasons_list else 'N/A'
 
-            # --- Extract Image URL ---
-            # Prioritize the 'images' list, but fall back to the main 'image' field.
-            image_url = (product.get('images') or [product.get('image', 'N/A')])[0]
-
             # --- Assemble the formatted string for the LLM ---
             llm_texts.append(f"""prod {i + 1}:
 title: {title}
@@ -67,6 +63,6 @@ features: {features}
 activity: {activity}
 material: {material}
 seasons: {seasons}
-image_url: {image_url}""")
+""")
             
         return self._format_llm_output(search_keyword, llm_texts)

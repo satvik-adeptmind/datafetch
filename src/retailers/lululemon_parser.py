@@ -5,8 +5,9 @@ class LululemonParser(BaseParser):
     A parser for processing product data from a Lululemon API response.
 
     This class extracts detailed product information from the JSON payload,
-    formats it into a structured text format for a language model, and handles
-    cases where product data may be missing or incomplete.
+    including a list of all variant colors for each product, formats it into a 
+    structured text format for a language model, and handles cases where 
+    product data may be missing or incomplete.
     """
     def parse_response(self, search_keyword, api_data):
         """
@@ -32,14 +33,17 @@ class LululemonParser(BaseParser):
             desc = product.get('description', 'N/A').strip() or 'N/A'
             gender = product.get('gender', 'N/A').strip() or 'N/A'
             age_group = product.get('age_group', 'N/A').strip() or 'N/A'
-            color = product.get('color', 'N/A').strip() or 'N/A'
             fit = product.get('fit', 'N/A').strip() or 'N/A'
             category = product.get('category', 'N/A').strip() or 'N/A'
             inseam = product.get('inseam', 'N/A').strip() or 'N/A'
             material = product.get('material', 'N/A').strip() or 'N/A'
 
-            # --- Extract and Format List Fields ---
-            # Join list items into a single string, or return 'N/A' if the list is empty.
+            # --- CORRECTED: Extract and Format variant colors FOR EACH PRODUCT ---
+            # This logic is now inside the loop, just like in your JcrewParser.
+            all_variant_colors_list = product.get("ALL_VARIANT_COLORS", [])
+            all_colors_formatted = "/".join(all_variant_colors_list) if all_variant_colors_list else 'N/A'
+
+            # --- Extract and Format Other List Fields ---
             features_list = product.get('features', [])
             features = ", ".join(features_list) if features_list else 'N/A'
 
@@ -55,7 +59,7 @@ title: {title}
 description: {desc}
 gender: {gender}
 age_group: {age_group}
-color: {color}
+color: {all_colors_formatted}
 fit: {fit}
 category: {category}
 inseam: {inseam}

@@ -69,7 +69,8 @@ RETAILER_PARSERS = {
     "image": ImageParser,
     "jacamo": JacamoParser,
     "anntaylor": AnnTaylorParser,
-    "staples": StaplesParser
+    "staples": StaplesParser,
+    "vincecamuto": VinceCamutoParser
 }
 
 def create_zip_file(file_paths):

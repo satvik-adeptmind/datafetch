@@ -30,6 +30,8 @@ from src.retailers.petsupermarket_parser import PetSuperMarketParser
 from src.retailers.image_parser import ImageParser
 from src.retailers.jacamo_parser import JacamoParser
 from src.retailers.anntaylor_parser import AnnTaylorParser
+from src.retailers.staples_parser import StaplesParser
+from src.retailers.vincecamuto_parser import VinceCamutoParser
 import os
 import yaml
 import tempfile
@@ -66,7 +68,8 @@ RETAILER_PARSERS = {
     "petsupermarket": PetSuperMarketParser,
     "image": ImageParser,
     "jacamo": JacamoParser,
-    "anntaylor": AnnTaylorParser
+    "anntaylor": AnnTaylorParser,
+    "staples": StaplesParser
 }
 
 def create_zip_file(file_paths):

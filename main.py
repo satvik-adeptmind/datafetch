@@ -35,6 +35,8 @@ from src.retailers.jacamo_parser import JacamoParser
 from src.retailers.anntaylor_parser import AnnTaylorParser
 from src.retailers.staples_parser import StaplesParser
 from src.retailers.vincecamuto_parser import VinceCamutoParser
+from src.retailers.quiksilver_parser import QuiksilverParser
+from src.retailers.billabong_parser import BillabongParser
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -65,7 +67,9 @@ RETAILER_PARSERS = {
     "jacamo": JacamoParser,
     "anntaylor": AnnTaylorParser,
     "staples": StaplesParser,
-    "vincecamuto": VinceCamutoParser
+    "vincecamuto": VinceCamutoParser,
+    "quiksilver": QuiksilverParser,
+    "billabong": BillabongParser
 }
 
 # (The rest of the main.py file remains unchanged)

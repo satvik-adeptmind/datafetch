@@ -37,6 +37,12 @@ from src.retailers.staples_parser import StaplesParser
 from src.retailers.vincecamuto_parser import VinceCamutoParser
 from src.retailers.quiksilver_parser import QuiksilverParser
 from src.retailers.billabong_parser import BillabongParser
+from src.retailers.lenovoglobalar_parser import LenovoGlobalArParser
+from src.retailers.lenovoglobalcl_parser import LenovoGlobalClParser
+from src.retailers.lenovoglobalco_parser import LenovoGlobalCoParser
+from src.retailers.lenovoglobalmx_parser import LenovoGlobalMxParser
+from src.retailers.lenovoglobalpe_parser import LenovoGlobalPeParser
+from src.retailers.lenovoglobalsg_parser import LenovoGlobalSgParser
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -69,7 +75,13 @@ RETAILER_PARSERS = {
     "staples": StaplesParser,
     "vincecamuto": VinceCamutoParser,
     "quiksilver": QuiksilverParser,
-    "billabong": BillabongParser
+    "billabong": BillabongParser,
+    "lenovoglobalar": LenovoGlobalArParser,
+    "lenovoglobalcl": LenovoGlobalClParser,
+    "lenovoglobalco": LenovoGlobalCoParser,
+    "lenovoglobalmx": LenovoGlobalMxParser,
+    "lenovoglobalpe": LenovoGlobalPeParser,
+    "lenovoglobalsg": LenovoGlobalSgParser
 }
 
 # (The rest of the main.py file remains unchanged)

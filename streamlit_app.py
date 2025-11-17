@@ -40,6 +40,7 @@ from src.retailers.lenovoglobalco_parser import LenovoGlobalCoParser
 from src.retailers.lenovoglobalmx_parser import LenovoGlobalMxParser
 from src.retailers.lenovoglobalpe_parser import LenovoGlobalPeParser
 from src.retailers.lenovoglobalsg_parser import LenovoGlobalSgParser
+from src.retailers.reebok_parser import ReebokParser
 import os
 import yaml
 import tempfile
@@ -86,7 +87,8 @@ RETAILER_PARSERS = {
     "lenovoglobalco": LenovoGlobalCoParser,
     "lenovoglobalmx": LenovoGlobalMxParser,
     "lenovoglobalpe": LenovoGlobalPeParser,
-    "lenovoglobalsg": LenovoGlobalSgParser
+    "lenovoglobalsg": LenovoGlobalSgParser,
+    "reebok": ReebokParser
 }
 
 def create_zip_file(file_paths):

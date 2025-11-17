@@ -41,6 +41,12 @@ from src.retailers.lenovoglobalmx_parser import LenovoGlobalMxParser
 from src.retailers.lenovoglobalpe_parser import LenovoGlobalPeParser
 from src.retailers.lenovoglobalsg_parser import LenovoGlobalSgParser
 from src.retailers.reebok_parser import ReebokParser
+from src.retailers.lenovoglobalie_parser import LenovoGlobalIeParser
+from src.retailers.lenovoglobalgb_parser import LenovoGlobalGbParser
+from src.retailers.lenovoglobalhk_parser import LenovoGlobalHkParser
+from src.retailers.lenovoglobalca_parser import LenovoGlobalCaParser
+from src.retailers.lenovoglobalin_parser import LenovoGlobalInParser
+from src.retailers.lenovoglobalau_parser import LenovoGlobalAuParser
 import os
 import yaml
 import tempfile
@@ -88,7 +94,13 @@ RETAILER_PARSERS = {
     "lenovoglobalmx": LenovoGlobalMxParser,
     "lenovoglobalpe": LenovoGlobalPeParser,
     "lenovoglobalsg": LenovoGlobalSgParser,
-    "reebok": ReebokParser
+    "reebok": ReebokParser,
+    "lenovoglobalie": LenovoGlobalIeParser,
+    "lenovoglobalgb": LenovoGlobalGbParser,
+    "lenovoglobalhk": LenovoGlobalHkParser,
+    "lenovoglobalca": LenovoGlobalCaParser,
+    "lenovoglobalin": LenovoGlobalInParser,
+    "lenovoglobalau": LenovoGlobalAuParser
 }
 
 def create_zip_file(file_paths):

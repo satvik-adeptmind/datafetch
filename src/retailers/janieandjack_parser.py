@@ -38,9 +38,17 @@ class JanieAndJackParser(BaseParser):
             # 1. Add basic product attributes
             add("title", product.get("title"))
             add("description", product.get("description"))
-            add("product_type", product.get("product_type"))
 
-            # 2. Extract information from the first variant of the first model
+            # 2. Add the new specified fields. These are lists in the JSON,
+            # so we join them into a comma-separated string.
+            add("FABRIC", ", ".join(product.get("FABRIC", [])))
+            add("SEASON", ", ".join(product.get("SEASON", [])))
+            add("OCCASION", ", ".join(product.get("OCCASION", [])))
+            add("VIBE", ", ".join(product.get("VIBE", [])))
+            add("LOOK", ", ".join(product.get("LOOK", [])))
+
+
+            # 3. Extract information from the first variant of the first model
             models = product.get('models', [])
             if models:
                 variants = models[0].get('variants', [])
@@ -50,9 +58,9 @@ class JanieAndJackParser(BaseParser):
                     add("color", color_val)
                     add("size", first_variant.get("size"))
 
-            # 3. Combine the details for the current product
+            # 4. Combine the details for the current product
             if details:
                 llm_texts.append(f"prod {i + 1}:\n" + "\n".join(details))
 
-        # 4. Format the final output for the LLM
+        # 5. Format the final output for the LLM
         return self._format_llm_output(search_keyword, llm_texts)

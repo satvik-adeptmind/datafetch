@@ -71,7 +71,7 @@ RETAILER_PARSERS = {
     "simplybe": SimplyBeParser,
     "solesupplier": SoleSupplierParser,
     "revzilla": RevzillaParser,
-    "uniquevintage": UniqueVintageParser, 
+    "uniquevintage": UniqueVintageParser,
     "homeessentials": HomeEssentialsParser,
     "pacsun": PacsunParser,
     "lenovointelus": LenovoIntelUsParser,
@@ -108,8 +108,8 @@ def create_zip_file(file_paths):
     zip_buffer = BytesIO()
     with zipfile.ZipFile(zip_buffer, "w") as zip_file:
         for file_path in file_paths:
-            zip_file.write(file_path, os.path.basename(file_path))  # Add file with its base name
-    zip_buffer.seek(0)  # Move the pointer to the beginning of the buffer
+            zip_file.write(file_path, os.path.basename(file_path))
+    zip_buffer.seek(0)
     return zip_buffer
 
 def create_output_directory(retailer_name):
@@ -120,38 +120,29 @@ def create_output_directory(retailer_name):
 
 def run_orchestrator(keywords, retailer_name, num_output_files):
     """Runs the BatchOrchestrator with the given inputs."""
-    # Load the retailer-specific configuration
     config_path = f"configs/{retailer_name}.yaml"
     with open(config_path, 'r') as f:
         config = yaml.safe_load(f)
 
-    # Create a persistent temporary directory for outputs
-    temp_dir = tempfile.TemporaryDirectory()  # Keep this alive until the function ends
+    temp_dir = tempfile.TemporaryDirectory()
     config['output_dir'] = temp_dir.name
     config['output_filename_base'] = f"{retailer_name}_results"
     config['num_output_files'] = num_output_files
-    config['input_csv_path'] = None  # Not used since we pass keywords directly
+    config['input_csv_path'] = None
 
-    # Initialize the parser, API client, and orchestrator
     ParserClass = RETAILER_PARSERS[retailer_name]
     data_parser = ParserClass(config)
     api_client = ApiClient(config['retry_settings'])
     orchestrator = BatchOrchestrator(config, api_client, data_parser)
-
-    # Inject keywords directly into the orchestrator
     orchestrator.keywords = keywords
 
-    # Run the orchestrator
     asyncio.run(orchestrator.run())
 
-    # Collect the output files
     output_files = [
         os.path.join(config['output_dir'], file)
         for file in os.listdir(config['output_dir'])
         if file.endswith('.json')
     ]
-
-    # Return the output files and the temporary directory object
     return output_files, temp_dir
 
 # Initialize session state
@@ -167,10 +158,15 @@ keywords_input = st.text_area("Paste Keywords (one per line)")
 num_output_files = st.number_input("Number of Output Files", min_value=1, value=1, step=1)
 
 if st.button("Run"):
-    if st.session_state.output_dir and os.path.exists(st.session_state.output_dir):
-        shutil.rmtree(st.session_state.output_dir)
-        st.session_state.output_files = None
-        st.session_state.output_dir = None
+    # If a TemporaryDirectory object from a previous run exists, clean it up.
+    if st.session_state.output_dir:
+        try:
+            st.session_state.output_dir.cleanup()
+        except Exception as e:
+            st.warning(f"Failed to cleanup previous temporary directory: {e}")
+        finally:
+            st.session_state.output_files = None
+            st.session_state.output_dir = None
 
     if not keywords_input.strip():
         st.error("Please paste at least one keyword.")
@@ -179,13 +175,18 @@ if st.button("Run"):
         st.info(f"Processing {len(keywords)} keywords for retailer '{retailer_name}'...")
 
         try:
-            output_files, output_dir = run_orchestrator(keywords, retailer_name, num_output_files)
+            output_files, temp_dir_obj = run_orchestrator(keywords, retailer_name, num_output_files)
             st.session_state.output_files = output_files
-            st.session_state.output_dir = output_dir
+            st.session_state.output_dir = temp_dir_obj
+            st.rerun() # Rerun to display the download buttons immediately
         except Exception as e:
             st.error(f"An error occurred: {e}")
-            if st.session_state.output_dir and os.path.exists(st.session_state.output_dir):
-                shutil.rmtree(st.session_state.output_dir)
+            # Cleanup directory from a previous successful run if the current one fails
+            if st.session_state.output_dir:
+                try:
+                    st.session_state.output_dir.cleanup()
+                except Exception as cleanup_error:
+                    st.warning(f"Could not clean up temp directory during error handling: {cleanup_error}")
             st.session_state.output_files = None
             st.session_state.output_dir = None
 

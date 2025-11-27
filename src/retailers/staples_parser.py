@@ -11,6 +11,5 @@ class StaplesParser(BaseParser):
             description = product.get('description', 'N/A').strip() or 'N/A'
         
             llm_texts.append(f"""prod {i + 1}:
-title: {title}
-description: {description}""")
+title: {title}""")
         return self._format_llm_output(search_keyword, llm_texts)

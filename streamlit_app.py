@@ -47,6 +47,7 @@ from src.retailers.lenovoglobalhk_parser import LenovoGlobalHkParser
 from src.retailers.lenovoglobalca_parser import LenovoGlobalCaParser
 from src.retailers.lenovoglobalin_parser import LenovoGlobalInParser
 from src.retailers.lenovoglobalau_parser import LenovoGlobalAuParser
+from src.retailers.roots_parser import RootsParser
 import os
 import yaml
 import tempfile
@@ -100,7 +101,8 @@ RETAILER_PARSERS = {
     "lenovoglobalhk": LenovoGlobalHkParser,
     "lenovoglobalca": LenovoGlobalCaParser,
     "lenovoglobalin": LenovoGlobalInParser,
-    "lenovoglobalau": LenovoGlobalAuParser
+    "lenovoglobalau": LenovoGlobalAuParser,
+    "roots": RootsParser
 }
 
 def create_zip_file(file_paths):

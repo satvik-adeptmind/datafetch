@@ -5,14 +5,23 @@ class RootsParser(BaseParser):
     A parser designed to extract product information from a 'Roots' API response payload.
     
     This parser handles the specific nested structure of the Roots data, extracting
-    details from both the top-level and the nested 'attributes' dictionary.
+    details from both the top-level and the nested 'attributes' dictionary. It correctly
+    processes attributes that may have single or multiple values.
     """
     
-    def _get_attribute(self, attributes, key, default='N/A'):
-        """Safely retrieves the first item from a list within the attributes dictionary."""
-        # Attributes in the payload are often lists, e.g., "AGE": ["CHILD"]
-        # This gets the value, provides a default list, and takes the first element.
-        return attributes.get(key, [default])[0]
+    def _get_joined_attribute(self, attributes, key, separator=' / '):
+        """
+        Safely retrieves an attribute's value(s) and joins them into a single string.
+        Handles cases where the attribute is a list or a single value.
+        """
+        value = attributes.get(key)
+        if isinstance(value, list) and value:
+            # Join all items in the list
+            return separator.join(map(str, value))
+        elif value:
+            # If it's not a list but has a value, return it as a string
+            return str(value)
+        return 'N/A'
 
     def parse_response(self, search_keyword, api_data):
         """
@@ -26,12 +35,8 @@ class RootsParser(BaseParser):
             dict: A dictionary formatted for a Large Language Model (LLM),
                   containing the structured product data or an error message.
         """
-        # Assuming api_data might contain a list of products under a 'products' key
-        products = api_data.get("products", [])
-        
-        # If the top-level object is a single product, wrap it in a list
-        if not products and "prod_id" in api_data:
-            products = [api_data]
+        # If the top-level object is a single product, wrap it in a list for consistent processing
+        products = [api_data] if "prod_id" in api_data else api_data.get("products", [])
             
         if not products:
             return {"search_term": search_keyword, "error": "No products returned."}
@@ -45,19 +50,15 @@ class RootsParser(BaseParser):
             # Get the nested attributes dictionary for easier access
             attributes = product.get('attributes', {})
             
-            # Extract details from the bottom/nested 'attributes' dictionary
-            age = self._get_attribute(attributes, 'AGE')
-            gender = self._get_attribute(attributes, 'GENDER')
-            occasion = self._get_attribute(attributes, 'OCCASION')
-            sleeve_type = self._get_attribute(attributes, 'SLEEVE_TYPE')
-            
-            # Fabric can be a list, so join its elements
-            fabric_list = attributes.get('FABRIC', [])
-            fabric = ", ".join(fabric_list) if fabric_list else 'N/A'
+            # Extract details from the nested 'attributes' dictionary using the corrected helper
+            age = self._get_joined_attribute(attributes, 'AGE')
+            gender = self._get_joined_attribute(attributes, 'GENDER')
+            occasion = self._get_joined_attribute(attributes, 'OCCASION')
+            sleeve_type = self._get_joined_attribute(attributes, 'SLEEVE_TYPE')
+            fabric = self._get_joined_attribute(attributes, 'FABRIC', separator=', ') # Using comma for fabric
             
             # Get all available colors and join them with a slash
-            colors_list = attributes.get('ALL_VARIANT_COLORS', [])
-            all_colors = " / ".join(colors_list) if colors_list else 'N/A'
+            all_colors = self._get_joined_attribute(attributes, 'ALL_VARIANT_COLORS')
             
             # Format the extracted data into a single string for the LLM
             llm_texts.append(f"""prod {i + 1}:

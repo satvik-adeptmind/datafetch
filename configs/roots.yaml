@@ -1,5 +1,5 @@
 # configs/loft.yaml
-shop_id: "roots_en_us"
+shop_id: "roots_en_ca"
 input_csv_path: "inputs/roots.csv"
 output_filename_base: "outputs/roots"
 num_output_files: 1

@@ -55,6 +55,7 @@ class RootsParser(BaseParser):
             gender = self._get_joined_attribute(attributes, 'GENDER')
             occasion = self._get_joined_attribute(attributes, 'OCCASION')
             sleeve_type = self._get_joined_attribute(attributes, 'SLEEVE_TYPE')
+            sports_type = self._get_joined_attribute(attributes, 'SPORTS_TYPE')
             fabric = self._get_joined_attribute(attributes, 'FABRIC', separator=', ') # Using comma for fabric
             
             # Get all available colors and join them with a slash
@@ -69,6 +70,7 @@ gender: {gender}
 occasion: {occasion}
 sleeve_type: {sleeve_type}
 fabric: {fabric}
+sports_type: {sports_type}
 colors: {all_colors}""")
             
         return self._format_llm_output(search_keyword, llm_texts)

@@ -49,6 +49,7 @@ from src.retailers.lenovoglobalin_parser import LenovoGlobalInParser
 from src.retailers.lenovoglobalau_parser import LenovoGlobalAuParser
 from src.retailers.roots_parser import RootsParser
 from src.retailers.bananarepublic_parser import BananaRepublicParser
+from src.retailers.bananarepublicfactory_parser import BananaRepublicParser
 import os
 import yaml
 import tempfile
@@ -104,7 +105,8 @@ RETAILER_PARSERS = {
     "lenovoglobalin": LenovoGlobalInParser,
     "lenovoglobalau": LenovoGlobalAuParser,
     "roots": RootsParser,
-    "bananarepublic": BananaRepublicParser
+    "bananarepublic": BananaRepublicParser,
+    "bananarepublicfactory": BananaRepublicParser
 }
 
 def create_zip_file(file_paths):

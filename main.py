@@ -53,6 +53,7 @@ from src.retailers.lenovoglobalau_parser import LenovoGlobalAuParser
 from src.retailers.roots_parser import RootsParser
 from src.retailers.bananarepublic_parser import BananaRepublicParser
 from src.retailers.bananarepublicfactory_parser import BananaRepublicParser
+from src.retailers.solesupplierv2_parser import SoleSupplierV2
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -101,7 +102,8 @@ RETAILER_PARSERS = {
     "lenovoglobalau": LenovoGlobalAuParser,
     "roots": RootsParser,
     "bananarepublic": BananaRepublicParser,
-    "bananarepublicfactory": BananaRepublicParser
+    "bananarepublicfactory": BananaRepublicParser,
+    "solesupplierv2": SoleSupplierV2
 }
 
 # (The rest of the main.py file remains unchanged)

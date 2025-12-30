@@ -29,6 +29,7 @@ class LululemonParser(BaseParser):
         llm_texts = []
         for i, product in enumerate(products):
             # --- Extract Simple String Fields with fallbacks ---
+            prod_id = product.get('prod_id', 'N/A').strip() or 'N/A'
             title = product.get('title', 'N/A').strip() or 'N/A'
             desc = product.get('description', 'N/A').strip() or 'N/A'
             gender = product.get('gender', 'N/A').strip() or 'N/A'
@@ -55,6 +56,7 @@ class LululemonParser(BaseParser):
 
             # --- Assemble the formatted string for the LLM ---
             llm_texts.append(f"""prod {i + 1}:
+prod_id: {prod_id}
 title: {title}
 description: {desc}
 gender: {gender}

@@ -55,6 +55,7 @@ from src.retailers.bananarepublic_parser import BananaRepublicParser
 from src.retailers.bananarepublicfactory_parser import BananaRepublicParser
 from src.retailers.solesupplierv2_parser import SoleSupplierV2
 from src.retailers.footlocker_parser import FootLockerParser
+from src.retailers.madewell_parser import MadewellParser
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -105,7 +106,8 @@ RETAILER_PARSERS = {
     "bananarepublic": BananaRepublicParser,
     "bananarepublicfactory": BananaRepublicParser,
     "solesupplierv2": SoleSupplierV2,
-    "footlocker": FootLockerParser
+    "footlocker": FootLockerParser,
+    "madewell": MadewellParser
 }
 
 # (The rest of the main.py file remains unchanged)

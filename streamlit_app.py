@@ -52,6 +52,7 @@ from src.retailers.bananarepublic_parser import BananaRepublicParser
 from src.retailers.bananarepublicfactory_parser import BananaRepublicParser
 from src.retailers.solesupplierv2_parser import SoleSupplierV2
 from src.retailers.footlocker_parser import FootLockerParser
+from src.retailers.madewell_parser import MadewellParser
 import os
 import yaml
 import tempfile
@@ -110,7 +111,8 @@ RETAILER_PARSERS = {
     "bananarepublic": BananaRepublicParser,
     "bananarepublicfactory": BananaRepublicParser,
     "solesupplierv2": SoleSupplierV2,
-    "footlocker": FootLockerParser
+    "footlocker": FootLockerParser,
+    "madewell": MadewellParser
 }
 
 def create_zip_file(file_paths):

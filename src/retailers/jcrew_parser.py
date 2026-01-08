@@ -25,6 +25,7 @@ class JcrewParser(BaseParser):
                 pinned_variant = all_variants[0] if all_variants else {}
             # --- End of pinned variant logic ---
 
+            prod_id = product.get('prod_id', 'N/A') 
             title = product.get('title', 'N/A')
             desc = product.get('description', 'N/A')
             gender = pinned_variant.get('gender', 'N/A')
@@ -34,7 +35,7 @@ class JcrewParser(BaseParser):
             # Format the colors into the "hydrangea/navy/white" format.
             colors_str = "/".join([c.lower() for c in all_colors]) if all_colors else 'N/A'
             
-            lines = [f"prod {i + 1}:", f"title: {title}", f"description: {desc}", 
+            lines = [f"prod {i + 1}:", f"prod_id: {prod_id}", f"title: {title}", f"description: {desc}", 
                      f"gender: {gender}", f"color: {colors_str}"]
 
             # Extract Lily AI keys from the pinned variant.

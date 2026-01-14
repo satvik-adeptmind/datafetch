@@ -56,6 +56,7 @@ from src.retailers.madewell_parser import MadewellParser
 from src.retailers.gapfactoryus_parser import GapFactoryUsParser
 from src.retailers.gapus_parser import GapUsParser
 from src.retailers.oldnavyca_parser import OldNavyCaParser
+from src.retailers.alexandani_parser import AlexAndAniParser
 import os
 import yaml
 import tempfile
@@ -118,7 +119,8 @@ RETAILER_PARSERS = {
     "madewell": MadewellParser,
     "gapfactoryus": GapFactoryUsParser,
     "gapus": GapUsParser,
-    "oldnavyca": OldNavyCaParser
+    "oldnavyca": OldNavyCaParser,
+    "alexandani": AlexAndAniParser
 }
 
 def create_zip_file(file_paths):

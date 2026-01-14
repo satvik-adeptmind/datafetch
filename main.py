@@ -59,6 +59,7 @@ from src.retailers.madewell_parser import MadewellParser
 from src.retailers.gapfactoryus_parser import GapFactoryUsParser
 from src.retailers.gapus_parser import GapUsParser
 from src.retailers.oldnavyca_parser import OldNavyCaParser
+from src.retailers.alexandani_parser import AlexAndAniParser
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -113,7 +114,8 @@ RETAILER_PARSERS = {
     "madewell": MadewellParser,
     "gapfactoryus": GapFactoryUsParser,
     "gapus": GapUsParser,
-    "oldnavy": OldNavyCaParser
+    "oldnavy": OldNavyCaParser,
+    "alexandani": AlexAndAniParser
 }
 
 # (The rest of the main.py file remains unchanged)

@@ -57,6 +57,7 @@ from src.retailers.gapfactoryus_parser import GapFactoryUsParser
 from src.retailers.gapus_parser import GapUsParser
 from src.retailers.oldnavyca_parser import OldNavyCaParser
 from src.retailers.alexandani_parser import AlexAndAniParser
+from src.retailers.davidjones_parser import DavidJonesParser
 import os
 import yaml
 import tempfile
@@ -120,7 +121,8 @@ RETAILER_PARSERS = {
     "gapfactoryus": GapFactoryUsParser,
     "gapus": GapUsParser,
     "oldnavyca": OldNavyCaParser,
-    "alexandani": AlexAndAniParser
+    "alexandani": AlexAndAniParser,
+    "davidjones": DavidJonesParser
 }
 
 def create_zip_file(file_paths):

@@ -1,4 +1,4 @@
-# E-Commerce Data Fetcher
+# Data Fetcher
 
 This Streamlit app allows users to fetch product data from various e-commerce retailers by pasting keywords, selecting the number of output files, and specifying the retailer.
 

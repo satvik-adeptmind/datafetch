@@ -62,6 +62,8 @@ from src.retailers.oldnavyca_parser import OldNavyCaParser
 from src.retailers.alexandani_parser import AlexAndAniParser
 from src.retailers.davidjones_parser import DavidJonesParser
 from src.retailers.bananarepubliccanada_parser import BananaRepublicCanadaParser
+from src.retailers.gapca_parser import GapCaParser
+
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
     "brooksbrothers": BrooksBrothersParser,
@@ -120,6 +122,7 @@ RETAILER_PARSERS = {
     "alexandani": AlexAndAniParser,
     "davidjones": DavidJonesParser,
     "bananarepubliccanada": BananaRepublicCanadaParser,
+    "gapca": GapCaParser
 }
 
 # (The rest of the main.py file remains unchanged)

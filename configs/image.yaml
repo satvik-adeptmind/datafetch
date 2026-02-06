@@ -1,5 +1,5 @@
 # configs/simplybe.yaml
-shop_id: "thesolesupplier"
+shop_id: "footlocker"
 input_csv_path: "inputs/homeessentials_keywords.csv"
 output_filename_base: "outputs/homeessentials"
 num_output_files: 2

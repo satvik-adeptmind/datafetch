@@ -60,6 +60,7 @@ from src.retailers.alexandani_parser import AlexAndAniParser
 from src.retailers.davidjones_parser import DavidJonesParser
 from src.retailers.bananarepubliccanada_parser import BananaRepublicCanadaParser
 from src.retailers.gapca_parser import GapCaParser
+from src.retailers.dickssportinggoods_parser import DicksSportingGoodsParser
 import os
 import yaml
 import tempfile
@@ -126,7 +127,8 @@ RETAILER_PARSERS = {
     "alexandani": AlexAndAniParser,
     "davidjones": DavidJonesParser,
     "bananarepubliccanada": BananaRepublicCanadaParser,
-    "gapca": GapCaParser
+    "gapca": GapCaParser,
+    "dickssportinggoods": DicksSportingGoodsParser
 }
 
 def create_zip_file(file_paths):

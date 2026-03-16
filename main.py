@@ -64,6 +64,7 @@ from src.retailers.davidjones_parser import DavidJonesParser
 from src.retailers.bananarepubliccanada_parser import BananaRepublicCanadaParser
 from src.retailers.gapca_parser import GapCaParser
 from src.retailers.dickssportinggoods_parser import DicksSportingGoodsParser
+from src.retailers.snapone_en_us_parser import SnapOneEnUsParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -124,19 +125,21 @@ RETAILER_PARSERS = {
     "davidjones": DavidJonesParser,
     "bananarepubliccanada": BananaRepublicCanadaParser,
     "gapca": GapCaParser,
-    "dickssportinggoods": DicksSportingGoodsParser
+    "dickssportinggoods": DicksSportingGoodsParser,
+    "snapone_en_us": SnapOneEnUsParser
 }
 
 # (The rest of the main.py file remains unchanged)
 def load_config(retailer_name):
-    """Loads the YAML configuration for a given retailer."""
-    config_path = f"configs/{retailer_name}.yaml"
-    try:
-        with open(config_path, 'r') as f:
-            return yaml.safe_load(f)
-    except FileNotFoundError:
-        print(f"Error: Configuration file not found at '{config_path}'")
-        return None
+    """Loads the YAML/YML configuration for a given retailer."""
+    for extension in ("yaml", "yml"):
+        config_path = f"configs/{retailer_name}.{extension}"
+        if os.path.exists(config_path):
+            with open(config_path, 'r') as f:
+                return yaml.safe_load(f)
+
+    print(f"Error: Configuration file not found at 'configs/{retailer_name}.yaml' or 'configs/{retailer_name}.yml'")
+    return None
 
 def create_output_directory(retailer_name):
     """Creates a retailer-specific output directory if it doesn't exist."""

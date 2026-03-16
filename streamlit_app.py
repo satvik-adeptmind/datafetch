@@ -61,6 +61,7 @@ from src.retailers.davidjones_parser import DavidJonesParser
 from src.retailers.bananarepubliccanada_parser import BananaRepublicCanadaParser
 from src.retailers.gapca_parser import GapCaParser
 from src.retailers.dickssportinggoods_parser import DicksSportingGoodsParser
+from src.retailers.snapone_en_us_parser import SnapOneEnUsParser
 import os
 import yaml
 import tempfile
@@ -128,7 +129,8 @@ RETAILER_PARSERS = {
     "davidjones": DavidJonesParser,
     "bananarepubliccanada": BananaRepublicCanadaParser,
     "gapca": GapCaParser,
-    "dickssportinggoods": DicksSportingGoodsParser
+    "dickssportinggoods": DicksSportingGoodsParser,
+    "snapone_en_us": SnapOneEnUsParser
 }
 
 def create_zip_file(file_paths):
@@ -148,9 +150,19 @@ def create_output_directory(retailer_name):
 
 def run_orchestrator(keywords, retailer_name, num_output_files):
     """Runs the BatchOrchestrator with the given inputs."""
-    config_path = f"configs/{retailer_name}.yaml"
-    with open(config_path, 'r') as f:
-        config = yaml.safe_load(f)
+    config = None
+    for extension in ("yaml", "yml"):
+        config_path = f"configs/{retailer_name}.{extension}"
+        if os.path.exists(config_path):
+            with open(config_path, 'r') as f:
+                config = yaml.safe_load(f)
+            break
+
+    if config is None:
+        raise FileNotFoundError(
+            f"Configuration file not found for '{retailer_name}'. "
+            "Expected configs/<retailer>.yaml or configs/<retailer>.yml"
+        )
 
     temp_dir = tempfile.TemporaryDirectory()
     config['output_dir'] = temp_dir.name

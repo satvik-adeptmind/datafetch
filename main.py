@@ -65,6 +65,7 @@ from src.retailers.bananarepubliccanada_parser import BananaRepublicCanadaParser
 from src.retailers.gapca_parser import GapCaParser
 from src.retailers.dickssportinggoods_parser import DicksSportingGoodsParser
 from src.retailers.snapone_en_us_parser import SnapOneEnUsParser
+from src.retailers.oldnavyus_parser import OldNavyUsParser
 
 RETAILER_PARSERS = {
     "ambrose": AmbroseParser,
@@ -126,7 +127,8 @@ RETAILER_PARSERS = {
     "bananarepubliccanada": BananaRepublicCanadaParser,
     "gapca": GapCaParser,
     "dickssportinggoods": DicksSportingGoodsParser,
-    "snapone_en_us": SnapOneEnUsParser
+    "snapone_en_us": SnapOneEnUsParser,
+    "oldnavyus": OldNavyUsParser
 }
 
 # (The rest of the main.py file remains unchanged)

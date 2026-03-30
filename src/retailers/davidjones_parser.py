@@ -10,9 +10,11 @@ class DavidJonesParser(BaseParser):
             title = product.get('title', 'N/A').strip() or 'N/A'
             desc = product.get('description', 'N/A').strip() or 'N/A'
             color = product.get('color', 'N/A').strip() or 'N/A'
+            gender = product.get('gender', 'N/A').strip() or 'N/A'
         
             llm_texts.append(f"""prod {i + 1}:
 title: {title}
 description: {desc}
-color: {color}""")
+color: {color}
+gender: {gender}""")
         return self._format_llm_output(search_keyword, llm_texts)
